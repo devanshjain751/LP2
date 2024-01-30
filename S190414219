@@ -1,0 +1,90 @@
+//============================================================================
+// Name        : practical.cpp
+// Author      : prathmesh bagul
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class complex
+{
+	float r;
+	float i;
+
+public:
+	complex()
+{
+		r=0;
+		i=0;
+}
+	complex operator+(complex);
+	complex operator*(complex);
+	friend istream&operator>>(istream&input,complex&t);
+	friend ostream&operator<<(ostream&output,complex&t);
+};
+complex complex::operator+(complex c)
+{
+	complex temp;
+	temp.r=r+c.r;
+	temp.r=r+c.r;
+	return temp;
+}
+complex complex::operator*(complex c)
+{
+	complex temp2;
+	temp2.r=r+c.r;
+	temp2.i=i*c.i;
+	return temp2;
+}
+istream&operator>>(istream&input,complex&t)
+{
+	cout<<"enter the real part";
+	cin>>c.r;
+	cout<<"enter the imaginary part";
+	cin>>c.i;
+	return input;
+}
+ostream&operator<<(ostream&output,complex&t)
+{
+	output<<t.r<<"+"<<t.i<<"i\n";
+	return output;
+}
+int main()
+{
+	complex c1,c2,c3,c4;
+	cout<<"enter the 1st number\n";
+	cin>>c1;
+	cout<<"enter the 2nd number\n";
+	cin>>c2;
+	cout<<"enter the 3rd number\n";
+	cin>>c3;
+	cout<<"enter the 4th number\n";
+	cin>>c4;
+}
+}
+
+
+---------------------------------------------Output--------------------------------------------------------
+make all 
+Building file: ../src/practical.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/practical.d" -MT"src/practical.o" -o "src/practical.o" "../src/practical.cpp"
+../src/practical.cpp: In function ‘std::istream& operator>>(std::istream&, complex&)’:
+../src/practical.cpp:44:7: error: ‘c’ was not declared in this scope
+  cin>>c.r;
+       ^
+../src/practical.cpp: At global scope:
+../src/practical.cpp:66:1: error: expected declaration before ‘}’ token
+ }
+ ^
+src/subdir.mk:18: recipe for target 'src/practical.o' failed
+make: *** [src/practical.o] Error 1
+
+14:31:10 Build Finished (took 864ms)
+
+
+
+
+
